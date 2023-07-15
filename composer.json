@@ -2,8 +2,12 @@
     "name": "michalskoula/remove-formatting",
     "description": "Simple tool to remove (some) HTML formatting, for example for text copied from Word or Google Docs.",
     "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
     "require-dev": {
-        "symplify/easy-coding-standard": "^11.5"
+        "symplify/easy-coding-standard": "^11.5",
+        "tracy/tracy": "^2.9"
     },
     "license": "MIT",
     "autoload": {

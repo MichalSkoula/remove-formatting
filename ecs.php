@@ -8,7 +8,7 @@ use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return function (ECSConfig $ecsConfig): void {
     $ecsConfig->paths([
-
+        'src'
     ]);
 
     // this way you add a single rule
