@@ -21,6 +21,10 @@ class Remover
     {
         $html = $this->removeElements($html, $this->options->getAllowedElements());
         $html = $this->removeAttributes($html, $this->options->getAllowedAttributes());
+        if ($this->options->getRemoveWhitespaces()) {
+            $html = $this->removeDoubleWhitespace($html);
+        }
+
         return $html;
     }
 
@@ -44,7 +48,6 @@ class Remover
 
         // Iterate through each element and remove attributes
         foreach ($body->getElementsByTagName('*') as $element) {
-
             // Attributes to be removed
             $attributesToRemove = [];
 
@@ -52,9 +55,9 @@ class Remover
             $attributes = $element->attributes;
 
             foreach ($attributes as $attribute) {
-                $name = $attribute->nodeName;              
+                $name = $attribute->nodeName;
 
-                if (! in_array($name, $allowedAttributes)) {
+                if (! in_array($name, $allowedAttributes, true)) {
                     $attributesToRemove[] = $name;
                 }
             }
@@ -64,7 +67,6 @@ class Remover
                 $element->removeAttribute($nameToRemove);
             }
         }
-        
 
         // Get the inner content of the body
         $innerHtml = '';
@@ -77,5 +79,13 @@ class Remover
         $innerHtml = preg_replace('/<!DOCTYPE.*?>/', '', $innerHtml);
 
         return $innerHtml;
+    }
+
+    private function removeDoubleWhitespace(string $html): string
+    {
+        $html = preg_replace('/\s+/', ' ', $html);
+        $html = trim($html);
+
+        return $html;
     }
 }

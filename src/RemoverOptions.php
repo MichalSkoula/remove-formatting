@@ -10,12 +10,14 @@ class RemoverOptions
 
     private array $allowedAttributes = ['href', 'src'];
 
-    public function setAllowedAttributes(array $attributes)
+    private bool $removeWhitespaces = false;
+
+    public function setAllowedAttributes(array $attributes): void
     {
         $this->allowedAttributes = $attributes;
     }
 
-    public function addAllowedAttribute(string $attribute)
+    public function addAllowedAttribute(string $attribute): void
     {
         $this->allowedAttributes[] = $attribute;
     }
@@ -25,12 +27,12 @@ class RemoverOptions
         return $this->allowedAttributes;
     }
 
-    public function setAllowedElements(array $elements)
+    public function setAllowedElements(array $elements): void
     {
         $this->allowedElements = $elements;
     }
 
-    public function addAllowedElement(string $element)
+    public function addAllowedElement(string $element): void
     {
         $this->allowedElements[] = $element;
     }
@@ -38,9 +40,8 @@ class RemoverOptions
     public function getAllowedElements(): array
     {
         return array_map(
-            function ($value) {
+            static function ($value): string {
                 $value = trim($value);
-
                 if (substr($value, 0, 1) !== '<') {
                     $value = '<' . $value;
                 }
@@ -53,5 +54,15 @@ class RemoverOptions
             },
             $this->allowedElements
         );
+    }
+
+    public function setRemoveWhitespaces(bool $remove): void
+    {
+        $this->removeWhitespaces = $remove;
+    }
+
+    public function getRemoveWhitespaces(): bool
+    {
+        return $this->removeWhitespaces;
     }
 }
