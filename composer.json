@@ -1,0 +1,20 @@
+{
+    "name": "michalskoula/remove-formatting",
+    "description": "Simple tool to remove (some) HTML formatting, for example for text copied from Word or Google Docs.",
+    "type": "library",
+    "require-dev": {
+        "symplify/easy-coding-standard": "^11.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Michalskoula\\RemoveFormatting\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MichalSkoula",
+            "email": "michal@skoula.cz"
+        }
+    ]
+}
