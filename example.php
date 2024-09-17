@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require_once 'vendor/autoload.php';
 
-use Michalskoula\RemoveFormatting\Remover;
-use Michalskoula\RemoveFormatting\RemoverOptions;
+use MichalSkoula\RemoveFormatting\Remover;
+use MichalSkoula\RemoveFormatting\RemoverOptions;
 use Tracy\Debugger;
 
 Debugger::enable();
