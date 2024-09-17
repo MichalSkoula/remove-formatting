@@ -19,6 +19,9 @@ Requires PHP 7.4+
 ## Usage
 
 ```php
+use MichalSkoula\RemoveFormatting\Remover;
+use MichalSkoula\RemoveFormatting\RemoverOptions;
+
 // create options object (optional)
 $options = new RemoverOptions();
 
