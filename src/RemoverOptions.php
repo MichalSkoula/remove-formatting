@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Michalskoula\RemoveFormatting;
+namespace MichalSkoula\RemoveFormatting;
 
 class RemoverOptions
 {
